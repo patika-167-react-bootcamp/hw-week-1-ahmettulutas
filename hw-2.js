@@ -32,7 +32,7 @@ const findParentFolder = (array, fileId) => {
       return object.files.some(folder=> folder.id === fileId)
       });
       if (!folder) {
-        throw new Error(`FieId "${fileId}" doesnt exist.`);
+        throw new Error("FileId doesnt exist.");
         }
   return folder 
 }
@@ -44,7 +44,7 @@ const findItemtoMove = (array, fileId) => {
 const pushItemtoNewArray = (array, folderId, itemtoMove) => {
   // yardımcı fonksiyonumuz. Yeri değiştirilecek filemızı ve eklenecek folderimiza ekleyecek.
   if(!array.some(item => item.id === folderId)) {
-      throw new Error(`FolderId "${folderId}" doesnt exist.`)
+      throw new Error("FolderId doesnt exist.")
   }
   const mutatedArray = array.map(item => {
   // array parametresinde map fonksiyonu ile herbir nested objectteki iteme bakar.
@@ -105,7 +105,7 @@ const pushItemtoNewArray = (array, folderId, itemtoMove) => {
         // Öncelikle id'si fileId ile aynı olan ojecti filtreliyoruz.filter array döneceği için [folder] destructure kullandık.
         const [folder] = this.filter(item => item.id === fileId ? item : null)
         if(!folder) {
-            throw new Error (`FieId "${fileId}" doesnt exist.`)
+            throw new Error ("FileId doesnt exist.")
         }
         // Daha sonra bu folderin içinden files arrayını çıkarttık.
         const filteredFolder = {id:folder.id, name:folder.name}
@@ -122,9 +122,9 @@ const pushItemtoNewArray = (array, folderId, itemtoMove) => {
     return folder.id;
         }
 // TESTLER
-console.log(folders.move(25,5));
-console.log(folders.copy(26,8)); 
-console.log(folders.remove(26));
-console.log(folders.removeFolder(5));
-console.log(folders.parentFolderOf(17));  
+console.log(folders.move(17,8));
+//console.log(folders.copy(18,6)); 
+//console.log(folders.remove(24));
+/* console.log(folders.removeFolder(5));
+console.log(folders.parentFolderOf(17));  */ 
  
